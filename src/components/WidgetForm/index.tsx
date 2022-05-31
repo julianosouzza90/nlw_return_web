@@ -34,7 +34,7 @@ export const feedbackTypes = {
   },
 }
 
-export type FeedbackType =  keyof typeof feedbackTypes;
+export type FeedbackType =  "string";
 
 export function WidgetForm() {
 
