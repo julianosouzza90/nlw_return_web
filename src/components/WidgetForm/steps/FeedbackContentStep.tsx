@@ -8,7 +8,7 @@ import { Loading } from "../../Loading";
 import { ScreenshotButton } from "../ScreenshotButton";
 
 interface FeedbackContentStepProps {
-  feedbackType:string;
+  feedbackType:string | null;
   onFeedbackRestartRequested: () => void;
   onFeedbackSent: () => void;
 }
@@ -21,7 +21,7 @@ export function FeedbackContentStep({
   
   const [comment, setComment] = useState('');
   const [screenshot, setScreenshot] = useState<string | null>(null);
-  const feedbackTypeInfo = feedbackTypes[feedbackType];
+  const feedbackTypeInfo = feedbackTypes[feedbackType as keyof typeof feedbackTypes];
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
   async function handleSubmitFeedback(event: React.FormEvent<HTMLFormElement>) {
